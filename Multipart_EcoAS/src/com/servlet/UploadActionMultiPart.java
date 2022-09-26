@@ -1,5 +1,7 @@
 package com.servlet;
 
+import com.mybatis.EsbDAO;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -27,9 +29,12 @@ public class UploadActionMultiPart extends HttpServlet {
 	// private static final String TEMP_STROAGE = "C:\\Users\\User\\Desktop\\recv\\";
 	private static final String FILE_STROAGE = "C:\\Users\\jaewan\\Desktop\\multipart_test\\rcv";
 	
+	private EsbDAO dao = EsbDAO.getInstance();
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("Multipart Recevie Process...");
+		System.out.println("!!! Mybatis Test !!! => RouteInfo : " + dao.getRouteInfo());
 		long startTime = System.currentTimeMillis();
 		System.out.println("content-type : " + request.getContentType());
 		
